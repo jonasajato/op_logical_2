@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+//Esse exemplo visa a contagem de dados inseridos pelo usuário
+//O usuário deve listar 4 pessoas e definir se são homens ou mulheres
+//No final o sistema imprime seus nomes e a quantidade de cada um deles
+
+public class OPLOGICO2 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        ArrayList ListaNomes = new ArrayList();
+        String nome;
+        char sexo;
+        int totalM = 0;
+        int totalH = 0;
+        for (int i = 0; i < 4; i++){
+            System.out.println("Digite o nome da pessoa:");
+            nome = entrada.nextLine();
+            ListaNomes.add(nome);
+            System.out.println("Digite o sexo da pessoa - M (para mulheres) ou H (para homens)");
+            sexo = entrada.next().charAt(0);
+            if (sexo == 'm' || sexo == 'M'){
+//                while (sexo == 'm' || sexo == 'M' || sexo == 'h' || sexo == 'H');
+                totalM++;
+                entrada.nextLine();
+            } else if (sexo == 'h' || sexo == 'H') {
+//                while (sexo == 'm' || sexo == 'M' || sexo == 'h' || sexo == 'H');
+                totalH++;
+                entrada.nextLine();
+            }else {
+                while (sexo != 'm' || sexo != 'M' || sexo != 'h' || sexo != 'H');
+                System.out.println("Invalido");
+                entrada.nextLine();
+                System.out.println("Tente novamente");
+            }
+
+        }
+        System.out.println("Nomes: " + ListaNomes);
+        System.out.println("O total de mulheres é " + totalM);
+        System.out.println("O total de homens é " + totalH);
+        entrada.close();
+    }
+
+}
